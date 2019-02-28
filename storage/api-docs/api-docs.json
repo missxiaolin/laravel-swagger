@@ -14,32 +14,88 @@
         "http"
     ],
     "paths": {
-        "/api/index": {
+        "/swager": {
             "get": {
                 "tags": [
-                    "\u6d4b\u8bd5"
+                    "swager\u6d4b\u8bd5"
                 ],
-                "summary": "api index by tags",
-                "description": "\u8fd4\u56de\u6d4b\u8bd5\u5185\u5bb9",
-                "operationId": "apIndex",
+                "summary": "\u6d4b\u8bd5\u5217\u8868\u5199\u6cd5",
+                "description": "\u7528\u6237\u8d44\u6599\u5217\u8868",
+                "operationId": "user.index",
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "tags",
+                        "name": "page",
                         "in": "query",
-                        "description": "\u62ff\u6570\u636e\u7684\u7406\u7531",
-                        "required": true,
-                        "type": "string"
+                        "description": "\u5206\u9875\u7f16\u53f7,\u9ed8\u8ba41",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "pagesize",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u663e\u793a\u6761\u6570,\u9ed8\u8ba410",
+                        "type": "integer"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Dashboard overview."
+                        "description": "\u7528\u6237\u5217\u8868",
+                        "schema": {
+                            "properties": {
+                                "pages": {
+                                    "properties": {
+                                        "totalnum": {
+                                            "description": "\u8bb0\u5f55\u603b\u6570",
+                                            "type": "integer"
+                                        },
+                                        "totalpage": {
+                                            "description": "\u603b\u9875\u6570",
+                                            "type": "integer"
+                                        },
+                                        "pagesize": {
+                                            "description": "\u6bcf\u9875\u663e\u793a\u8bb0\u5f55\u6570",
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "description": "\u5f53\u524d\u9875\u6570",
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "lists": {
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "id",
+                                                "type": "integer"
+                                            },
+                                            "source": {
+                                                "description": "\u6570\u636e\u6765\u6e90",
+                                                "type": "string"
+                                            },
+                                            "industry_no": {
+                                                "description": "\u884c\u4e1a\u7f16\u53f7",
+                                                "type": "integer"
+                                            },
+                                            "channel_id": {
+                                                "description": "\u6e20\u9053id",
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "description": "\u540d\u79f0",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": "json"
+                        }
                     },
-                    "401": {
-                        "description": "Unauthorized action."
+                    "422": {
+                        "description": "error"
                     }
                 }
             }
