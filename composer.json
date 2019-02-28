@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
-        "xiaolin/laravel-gateway": "^0.0.9"
+        "xiaolin/laravel-gateway": "^0.0.9",
+        "zircote/swagger-php": "^3.0"
     },
     "repositories": [
         {
