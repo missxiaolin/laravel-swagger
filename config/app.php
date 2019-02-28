@@ -187,7 +187,10 @@ return [
         Lin\Src\Providers\LoggerProvider::class,
 
         // 封装sql日志
-        Lin\Src\Providers\SqlQueryServiceProvider::class
+        Lin\Src\Providers\SqlQueryServiceProvider::class,
+
+        // swagger配置
+        L5Swagger\L5SwaggerServiceProvider::class
 
     ],
 
