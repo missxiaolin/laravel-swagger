@@ -8,7 +8,8 @@ class SwaggerController extends Controller
 {
     /**
      * @SWG\Get(
-     *     path="/swager",
+     *
+     *     path="/swagger",
      *     summary="测试列表写法",
      *     tags={"swager测试"},
      *     description="用户资料列表",
